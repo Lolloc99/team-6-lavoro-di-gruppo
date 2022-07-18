@@ -18,8 +18,8 @@ class Athlete extends Model
     {
         return $this->belongsToMany('App\Category');
     }
-    // protected $fillable = [
-    //     'name',
-    //     'genre'
-    // ];
+    protected $fillable = [
+        'name',
+        'genre'
+    ];
 }

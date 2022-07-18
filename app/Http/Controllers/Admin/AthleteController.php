@@ -26,7 +26,8 @@ class AthleteController extends Controller
      */
     public function create()
     {
-        //
+        
+        return view('admin.athletes.create');
     }
 
     /**
@@ -37,7 +38,12 @@ class AthleteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $new_athlete = new Athlete();
+        $new_athlete->fill($data);
+        $new_athlete->save();
+
+        return redirect()->route('admin.athletes.show', ['athlete' => $new_athlete->id]);
     }
 
     /**
@@ -51,6 +57,7 @@ class AthleteController extends Controller
         $current_athlete = Athlete::findOrFail($id);
         $nationality = $current_athlete->nationality;
         $categories = $current_athlete->categories;
+
         return view('admin.athletes.show', compact('current_athlete', 'nationality', 'categories'));
     }
 
