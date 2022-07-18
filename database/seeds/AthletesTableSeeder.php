@@ -16,8 +16,7 @@ class AthletesTableSeeder extends Seeder
         $athletes_list = $data['athletes'];
         foreach ($athletes_list as $athlete) {
             $new_athlete = new Athlete();
-            $new_athlete->name = $athlete['name'];
-            $new_athlete->genre = $athlete['genre'];
+            $new_athlete->fill($athlete);
             $new_athlete->save();
         }
     }
