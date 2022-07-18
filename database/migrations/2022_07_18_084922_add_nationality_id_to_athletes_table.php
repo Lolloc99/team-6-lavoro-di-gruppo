@@ -14,7 +14,7 @@ class AddNationalityIdToAthletesTable extends Migration
     public function up()
     {
         Schema::table('athletes', function (Blueprint $table) {
-            $table->unsignedBigInteger('nationality_id');
+            $table->unsignedBigInteger('nationality_id')->nullable();
             $table->foreign('nationality_id')
                 ->references('id')
                 ->on('nationalities');
