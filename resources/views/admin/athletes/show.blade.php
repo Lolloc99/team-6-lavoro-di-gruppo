@@ -6,7 +6,9 @@
     <h3>Nome: {{ $current_athlete->name }}</h3>
     <p>Sesso: {{ $current_athlete->genre }}</p>
 
-    <p>Nazionalità: {{ $nationality->name }}, {{ $nationality->acronym }}</p>
+    @if ($nationality)
+        <p>Nazionalità: {{ $nationality->name }}, {{ $nationality->acronym }}</p>
+    @endif
 
     @forelse ($categories as $category)
         <p>Categoria: {{ $category->discipline }} | {{ $category->name }}</p>
