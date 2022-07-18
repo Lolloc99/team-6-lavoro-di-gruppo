@@ -29,7 +29,8 @@ class AddNationalityIdToAthletesTable extends Migration
     public function down()
     {
         Schema::table('athletes', function (Blueprint $table) {
-            //
+            $table->dropForeign('athletes_nationality_id_foreign');
+            $table->dropColumn('nationality_id');
         });
     }
 }
